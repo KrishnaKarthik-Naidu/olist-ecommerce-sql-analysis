@@ -27,9 +27,15 @@ The project focuses on answering important business questions such as:
 
 ## 🗄️ Dataset
 
-The project uses the **Olist Brazilian E-Commerce Public Dataset**.
+This project uses the **Olist Brazilian E-Commerce Public Dataset** obtained from Kaggle.
 
-The dataset contains multiple related tables representing different parts of an e-commerce business.
+The dataset contains multiple related tables representing different aspects of an e-commerce business, including customers, orders, products, sellers, payments, and reviews.
+
+### Dataset Source
+
+📌 **Source:** Kaggle  
+🔗 **Dataset:** Olist Brazilian E-Commerce Public Dataset
+
 
 ### Main Tables
 
