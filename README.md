@@ -63,6 +63,7 @@ order_items.seller_id → sellers.seller_id
 
 📌 A detailed database schema and relationship diagram is included in the project.
 
+---
 📊 Analysis Performed
 👥 1. Customer Analysis
 
@@ -75,6 +76,9 @@ Unique customer analysis
 Repeat-purchase behavior
 Customers with multiple orders
 Top customers by total spending
+
+---
+
 💰 2. Sales Analysis
 
 Analyzed overall sales performance and sales trends.
@@ -88,6 +92,9 @@ Monthly sales trends
 Previous-month sales using LAG()
 Month-over-month sales change
 Month-over-month growth percentage
+
+---
+
 📦 3. Product Analysis
 
 Analyzed product and category performance.
@@ -99,6 +106,9 @@ Top products by revenue
 Average product price by category
 Number of items sold by category
 Products with the highest number of orders
+
+---
+
 🏪 4. Seller Analysis
 
 Evaluated seller performance using sales and order metrics.
@@ -110,6 +120,9 @@ Top sellers by sales
 Orders handled by sellers
 Average sales per order
 High-volume sellers
+
+---
+
 🚚 5. Delivery Analysis
 
 Analyzed delivery efficiency and operational performance.
@@ -121,6 +134,9 @@ Late-delivery rate by state
 Sellers with higher average delivery times
 Delivery performance by product category
 Monthly delivery delays
+
+---
+
 ⭐ 6. Review Analysis
 
 Analyzed customer satisfaction and its relationship with order performance.
@@ -132,21 +148,10 @@ Review score for late vs on-time deliveries
 Delivery time vs review score
 Review performance by product category
 Seller review performance
-🧠 7. Advanced Business Analysis
 
-Used advanced SQL techniques to answer higher-level business questions.
+---
 
-Key analysis:
-
-🏆 Top 3 products within each category
-🔁 Repeat vs one-time customers
-💰 Revenue contribution by category
-📈 Month-over-month sales growth
-💎 Customer spending segmentation
-📊 Average order value by customer state
-📈 Key Business Metrics
-
-Some important metrics calculated during the analysis:
+##Some important metrics calculated during the analysis:
 
 KPI	Result
 🚚 Average Delivery Time	12.49 days
@@ -156,6 +161,7 @@ KPI	Result
 💰 Highest-Revenue Category Sales	~1.26M
 🧩 SQL Concepts Used
 
+---
 This project demonstrates practical SQL concepts including:
 
 SELECT
@@ -184,7 +190,9 @@ MONTH()
 DATEDIFF()
 Percentage calculations
 
-This provides a business-focused view of:
+
+---
+##This provides a business-focused view of:
 
 💰 Revenue generation
 👥 Customer behavior
@@ -198,6 +206,9 @@ This provides a business-focused view of:
 🐙 GitHub
 🚀 Conclusion
 
+
+---
+
 This project strengthened my practical SQL and data analytics skills by working with a multi-table e-commerce dataset and solving business-oriented analytical problems.
 
 Rather than focusing only on individual SQL commands, the project emphasizes:
@@ -208,6 +219,8 @@ Writing efficient analytical queries
 Using CTEs and window functions for advanced analysis
 Calculating meaningful business KPIs
 Translating SQL results into business insights
+
+---
 👨‍💻 Author
 
 Krishna Karthik Naidu
