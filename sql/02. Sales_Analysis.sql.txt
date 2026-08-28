@@ -1,0 +1,180 @@
+1. Total Revenue
+
+SELECT
+    SUM(price)
+FROM order_items;
+
+
+
+
+
+2. Revenue by Product Category
+
+SELECT
+    p.product_category_name,
+    SUM(oi.price) AS total_revenue
+FROM products p
+JOIN order_items oi
+    ON p.product_id = oi.product_id
+GROUP BY p.product_category_name
+ORDER BY total_revenue DESC;
+
+
+
+
+
+
+3. Top 10 Products by Revenue
+
+SELECT
+    product_id,
+    SUM(price) 
+FROM order_items
+GROUP BY product_id
+ORDER BY SUM(price) DESC
+LIMIT 10;
+
+
+
+
+
+
+4. Monthly Sales Trend
+
+WITH monthly_sales AS (
+    SELECT
+        YEAR(o.order_purchase_timestamp) AS year,
+        MONTH(o.order_purchase_timestamp) AS month,
+        SUM(oi.price) AS total_sales
+    FROM orders o
+    JOIN order_items oi
+        ON o.order_id = oi.order_id
+    GROUP BY
+        YEAR(o.order_purchase_timestamp),
+        MONTH(o.order_purchase_timestamp)
+)
+SELECT *
+FROM monthly_sales
+ORDER BY year, month;
+
+
+
+
+
+
+
+
+5. Month-over-Month Sales Change
+
+WITH monthly_sales AS (
+    SELECT
+        YEAR(o.order_purchase_timestamp) AS year,
+        MONTH(o.order_purchase_timestamp) AS month,
+        SUM(oi.price) AS total_sales
+    FROM orders o
+    JOIN order_items oi
+        ON o.order_id = oi.order_id
+    GROUP BY
+        YEAR(o.order_purchase_timestamp),
+        MONTH(o.order_purchase_timestamp)
+),
+sales_with_previous AS (
+    SELECT
+        year,
+        month,
+        total_sales,
+        LAG(total_sales) OVER (
+            ORDER BY year, month
+        ) AS previous_month_sales
+    FROM monthly_sales
+)
+SELECT
+    year,
+    month,
+    total_sales,
+    previous_month_sales,
+    total_sales - previous_month_sales AS sales_change
+FROM sales_with_previous
+ORDER BY year, month;
+
+
+
+
+
+
+
+
+6. Month-over-Month Sales Growth Percentage
+
+WITH monthly_sales AS (
+    SELECT
+        YEAR(o.order_purchase_timestamp) AS year,
+        MONTH(o.order_purchase_timestamp) AS month,
+        SUM(oi.price) AS total_sales
+    FROM orders o
+    JOIN order_items oi
+        ON o.order_id = oi.order_id
+    GROUP BY
+        YEAR(o.order_purchase_timestamp),
+        MONTH(o.order_purchase_timestamp)
+),
+sales_with_previous AS (
+    SELECT
+        year,
+        month,
+        total_sales,
+        LAG(total_sales) OVER (
+            ORDER BY year, month
+        ) AS previous_month_sales
+    FROM monthly_sales
+),
+sales_growth AS (
+    SELECT
+        year,
+        month,
+        total_sales,
+        previous_month_sales,
+        total_sales - previous_month_sales AS sales_change
+    FROM sales_with_previous
+)
+SELECT
+    year,
+    month,
+    total_sales,
+    previous_month_sales,
+    sales_change,
+    (sales_change / previous_month_sales) * 100 AS percent_growth
+FROM sales_growth
+ORDER BY year, month;
+
+
+
+
+
+
+
+7. Revenue Contribution by Product Category
+
+WITH category_sales AS (
+    SELECT
+        p.product_category_name,
+        SUM(oi.price) AS revenue
+    FROM products p
+    JOIN order_items oi
+        ON p.product_id = oi.product_id
+    GROUP BY p.product_category_name
+)
+SELECT
+    product_category_name,
+    revenue,
+    ROUND(
+        100 * revenue / SUM(revenue) OVER (),
+        2
+    ) AS revenue_percentage
+FROM category_sales
+ORDER BY revenue DESC;
+
+
+
+
+
