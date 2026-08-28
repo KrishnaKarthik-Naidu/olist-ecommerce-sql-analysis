@@ -44,7 +44,11 @@ The dataset contains multiple related tables representing different parts of an 
 | `reviews` | Customer review and rating information |
 
 
-Key Relationships
+---
+
+
+Key Relationships:
+
 customers.customer_id → orders.customer_id
 
 orders.order_id → order_items.order_id
