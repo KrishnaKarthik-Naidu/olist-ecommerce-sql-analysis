@@ -46,10 +46,15 @@ The dataset contains multiple related tables representing different parts of an 
 
 Key Relationships
 customers.customer_id → orders.customer_id
+
 orders.order_id → order_items.order_id
+
 orders.order_id → payments.order_id
+
 orders.order_id → reviews.order_id
+
 order_items.product_id → products.product_id
+
 order_items.seller_id → sellers.seller_id
 
 📌 A detailed database schema and relationship diagram is included in the project.
