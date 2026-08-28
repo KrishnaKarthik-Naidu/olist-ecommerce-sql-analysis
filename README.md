@@ -198,3 +198,33 @@ YEAR()
 MONTH()
 DATEDIFF()
 Percentage calculations
+
+This provides a business-focused view of:
+
+💰 Revenue generation
+👥 Customer behavior
+🏪 Seller performance
+📦 Product performance
+🚚 Delivery efficiency
+⭐ Customer satisfaction
+🛠️ Tools & Technologies
+🐬 MySQL
+💻 SQL
+🐙 GitHub
+🚀 Conclusion
+
+This project strengthened my practical SQL and data analytics skills by working with a multi-table e-commerce dataset and solving business-oriented analytical problems.
+
+Rather than focusing only on individual SQL commands, the project emphasizes:
+
+Understanding database relationships
+Choosing the correct tables for each business question
+Writing efficient analytical queries
+Using CTEs and window functions for advanced analysis
+Calculating meaningful business KPIs
+Translating SQL results into business insights
+👨‍💻 Author
+
+Krishna Karthik Naidu
+
+📌 Data Analytics | SQL | Business Intelligence
